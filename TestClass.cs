@@ -28,9 +28,9 @@ namespace CodeAssessmentProject
             LoginRequest loginRequest = new LoginRequest();
             
             var guid = ConfigurationManager.AppSettings["guid"];
-          string payload = @"{""clientTypeId"": ""5"",
+         /* string payload = @"{""clientTypeId"": ""5"",
                                ""languageCode"": ""en""
-                             }";
+                             }";*/
            //var request = login.LoginReuestToGetToken(guid, payload);
 
            // var loginRequest = new LoginRequest();
