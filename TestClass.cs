@@ -5,6 +5,7 @@ using NUnit.Framework;
 using System;
 using System.Configuration;
 using System.IO;
+using System.Reflection;
 
 namespace CodeAssessmentProject
 {
@@ -21,9 +22,11 @@ namespace CodeAssessmentProject
 
         [Test]
        
-        public void LoginTestMethod()
+        public void FirstLoginTestMethod()
         {
-            LoginRequest data = JsonConvert.DeserializeObject<LoginRequest>(File.ReadAllText(@"C:\Users\Admin\source\repos\CodeAssessmentProject\TestData\LoginTestData.json"));
+            String dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            
+            LoginRequest data = JsonConvert.DeserializeObject<LoginRequest>(File.ReadAllText(Path.Combine(dir+ @"\TestData\LoginTestData.json")));
 
             LoginRequest loginRequest = new LoginRequest();
             
@@ -61,7 +64,8 @@ namespace CodeAssessmentProject
         [Test]
         public void GamePlayTestMethod()
         {
-            GamePlayRequest data = JsonConvert.DeserializeObject<GamePlayRequest>(File.ReadAllText(@"C:\Users\Admin\source\repos\CodeAssessmentProject\TestData\GamePlayTestData.json"));
+            String dir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            GamePlayRequest data = JsonConvert.DeserializeObject<GamePlayRequest>(File.ReadAllText(Path.Combine(dir+ @"\TestData\GamePlayTestData.json")));
             var gameplaydata = new GamePlayRequest();
 
             string moduleId = ConfigurationManager.AppSettings["moduleId"];
